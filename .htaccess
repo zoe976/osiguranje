@@ -1,0 +1,12 @@
+
+RewriteEngine on
+
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{REQUEST_URI} !/public
+# RewriteRule ^([^/]+)/? index.php?url=$1 [L,QSA]
+
+# mora da se ubaci &%{QUERY_STRING} da bi prosledio sve parametre
+# inace url=$1 prosledi samo prvi posle /
+RewriteRule (.*) index.php?url=$1&%{QUERY_STRING} [L,QSA]
