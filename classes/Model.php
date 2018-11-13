@@ -2,10 +2,13 @@
 class Model {
 
   private $conn;
+
+ 
   
   function __construct()
   {
-    $this->conn = new PDO("mysql:host=localhost;dbname=osiguranje", 'root', '');
+    global $DB_HOST, $DB_DBNAME, $DB_USERNAME, $DB_PASSWORD;
+    $this->conn = new PDO("mysql:host=".$DB_HOST.";dbname=".$DB_DBNAME, $DB_USERNAME, $DB_PASSWORD);
   }
 
  public function dodajPolisu($vrsta, $pocetak_putovanja, $kraj_putovanja)
