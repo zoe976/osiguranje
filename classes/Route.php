@@ -31,6 +31,7 @@ class Route
 
 	public function dispatch()
 	{
+		global $url;
 		$dest='';
 		if ($_SERVER['REQUEST_METHOD'] == 'GET')
 		{
@@ -38,7 +39,7 @@ class Route
 			$route = ltrim($route, '/');
 			//print_r($route."</br>");
 			//print_r($_GET['url']."</br>");
-			$url = $_GET['url'];
+			//$url = $_GET['url'];
 			$U = explode('/', $url);
 			$R = explode('/', $route);
 
@@ -80,7 +81,7 @@ class Route
 			$route = ltrim($route, '/');
 			//print_r($route."</br>");
 			//print_r($_GET['url']."</br>");
-			$url = $_GET['url'];
+			//$url = $_GET['url'];
 			$U = explode('/', $url);
 			$R = explode('/', $route);
 

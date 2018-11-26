@@ -15,10 +15,10 @@
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 	<ul class="navbar-nav mr-auto">
 		<li class="nav-item">
-    		<a class="nav-link" href="/">Forma</a>
+    		<a class="nav-link" href="<?php echo BASE_URL ?>">Forma</a>
     	</li>
      	<li class="nav-item">
-        	<a class="nav-link" href="/tabela">Tabela</a>
+        	<a class="nav-link" href="<?php echo BASE_URL ?>tabela">Tabela</a>
       	</li>
 	</ul>
 </div>

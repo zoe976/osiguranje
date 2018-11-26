@@ -1,12 +1,24 @@
 
-RewriteEngine on
+#RewriteEngine on
+# AllowOverride All
 
-# RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteCond %{REQUEST_FILENAME} !-d
+ #RewriteCond %{REQUEST_FILENAME} !-f
+ #RewriteCond %{REQUEST_FILENAME} !-d
+ #RewriteCond %{REQUEST_FILENAME}  -f [OR]
+ #RewriteCond %{REQUEST_FILENAME} !-f
 
-RewriteCond %{REQUEST_URI} !/public
+# RewriteCond %{REQUEST_URI} !/public
 # RewriteRule ^([^/]+)/? index.php?url=$1 [L,QSA]
 
 # mora da se ubaci &%{QUERY_STRING} da bi prosledio sve parametre
 # inace url=$1 prosledi samo prvi posle /
-RewriteRule (.*) index.php?url=$1&%{QUERY_STRING} [L,QSA]
+
+# RewriteRule ^(.*)$ index.php?url=$1&%{QUERY_STRING} [NC,L,QSA]
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !-f
+RewriteCond %{REQUEST_URI} !-d 
+RewriteCond %{REQUEST_URI} !/public
+RewriteRule . index.php [L]
+</IfModule>
